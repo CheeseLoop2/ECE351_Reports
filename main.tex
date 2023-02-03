@@ -1,0 +1,304 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                              %
+% Sara Gergen                                                  %
+% ECE351                                                       %
+% Lab 2                                                        %
+% 2/2/2022                                                     %
+%                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{alphabeta} 
+
+\usepackage[pdftex]{graphicx}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\linespread{1.06}
+\setlength{\parskip}{8pt plus2pt minus2pt}
+
+\widowpenalty 10000
+\clubpenalty 10000
+
+\newcommand{\eat}[1]{}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\usepackage[official]{eurosym}
+\usepackage{enumitem}
+\setlist{nolistsep,noitemsep}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage{lipsum}
+
+
+\begin{document}
+
+%===========================================================
+\begin{titlepage}
+\begin{center}
+
+% Top 
+\includegraphics[width=0.55\textwidth]{cut-logo-en}~\\[2cm]
+
+
+% Title
+\HRule \\[0.4cm]
+{ \LARGE 
+  \textbf{Project Report for ECE 351}\\[0.4cm]
+  \emph{ Lab 2 - User-Defined Functions}\\[0.4cm]
+}
+\HRule \\[1.5cm]
+
+
+
+% Author
+{ \large
+  Sara Gergen \\[0.1cm]
+  2/2/2023\\[0.1cm]
+  %#\texttt{user@cut.ac.cy}
+}
+
+\vfill
+
+%\textsc{\Large Cyprus University of Technology}\\[0.4cm]\textsc{\large Department of Electrical Engineering,\\Computer Engineering \& Informatics}\\[0.4cm]
+
+
+
+ 
+\end{center}
+\end{titlepage}
+
+%\begin{abstract}
+%\lipsum[1-2]
+%\addtocontents{toc}{\protect\thispagestyle{empty}}
+%\end{abstract}
+
+\newpage
+
+
+
+%===========================================================
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\newpage
+\setcounter{page}{1}
+
+%===========================================================
+%===========================================================
+\section{Introduction}\label{sec:intro}
+
+
+
+\paragraph{    In this lab, several user defined functions are created. Part one consists of generating a cosine function, and the second part is to create and use a few user defined functions in order to generate the given plot. The last part of the lab is to use the function generated in the previous step; however, the following graphs will be phase shifted and time scaled. Finally, lastly a derivative function to generate plots for each step. }
+
+\section{Equations}\label{sec:lit-rev}
+
+
+\paragraph{For Part 2 we are asked to equation derive an equation for the plot given. The plot is a series of ramp and step functions the derived equation is:
+}
+
+\begin{center}
+\paragraph{Equation 1}
+$$y(t) = r(t) - r(t-3)+ 5*u(t-3) - 2*u(t-6) - 2*r(t-6)$$
+\end{center}
+
+
+
+\section{Methodology}\label{sec:meth}
+
+\subparagraph{\large Part 1}
+
+\paragraph{In part 1, we were to create a simple user-defined function, a simple cosine function with good resolution and graph it. This function is shown in figure 1:}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Cosine.png}
+    \caption{Derived Plot}
+    \label{fig:Cosine.png}
+\end{figure}
+}
+
+%Step function graphs
+\subparagraph{\large Part 2 }
+\paragraph{ Part 2 consists of creating your own user-defined function, such as a step function and ramp function. The equation that uses these user defined functions was derived in order to replicate the given function. In order to demonstrate the correct function of these ramp and step functions, I graphed the following as shown in figure 2 and 3.}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{step.png}
+    \caption{Step Function}
+    \label{fig:step.png}
+\end{figure}
+}
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{ramp.png}
+    \caption{Ramp Function}
+    \label{fig:ramp.png}
+\end{figure}
+}
+
+\paragraph{For the next task, I had to graph the given function with my created user-defined ramp and step functions. The derivation for my derived equation is shown below:}
+$$y(t) = r(t) - r(t-3)+ 5*u(t-3) - 2*u(t-6) - 2*r(t-6)$$
+
+\paragraph{After implementing the code and creating another function, I plotted the derived equation. This can be seen in the following figure 4:}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{plot2.png}
+    \caption{Function to Plot}
+    \label{fig:plot2.png}
+\end{figure}
+}
+
+
+
+\subparagraph{\large Part 3}
+\paragraph{In the next part 3, I am performing time-shifting and scaling operations to the function that I derived and plotted in the previous part 2.}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{plot2.png}
+    \caption{Function to Plot}
+    \label{fig:plot2.png}
+\end{figure}
+}
+\newpage
+
+\paragraph{In this part of the lab, I applied a time reversal to the plot replicated from part 2. This can be seen in the following figure:}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{time.png}
+    \caption{Time Reversal}
+    \label{fig:time.png}
+\end{figure}
+}
+\newpage
+
+\paragraph{The second task instructs for time shifts to be applied f(t-4) and f(-t-4). The following plots are shown below in Figure 4 and 5 respectively.}
+
+%f(t − 4) and f(−t − 4) 
+\paragraph{
+    \begin{figure}[htp]
+        \centering
+        \includegraphics[width=10cm]{shift4.png}
+        \caption{Time Shift 4}
+        \label{fig:shift4.png}
+    \end{figure}
+    
+    \begin{figure}[htp]
+        \centering
+        \includegraphics[width=10cm]{shift4neg.png}
+        \caption{Time Shift with Time Reversal}
+        \label{fig:shift4neg.png}
+    \end{figure}
+}
+
+\paragraph{The next adjustment to be made graphically is a scale operation. The operations f(t/2) and f(2t) will be made upon the function and they can be seen in the following figures:}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{div2.png}
+    \caption{Dividing by 2}
+    \label{fig:div2.png}
+\end{figure}
+}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{times2.png}
+    \caption{Multiplying by 2}
+    \label{fig:times2.png}
+\end{figure}
+}
+
+\paragraph{This is the second task of part 3. This is the hand-drawn plot, which was plotted with the program draw.io.}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{gendiv.png}
+    \caption{"Hand-drawn" Derivative}
+    \label{fig:gendiv.png}
+\end{figure}
+}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{times2.png}
+    \caption{Multiplying by 2}
+    \label{fig:times2.png}
+\end{figure}
+}
+
+
+
+\paragraph{Finally, the final task has me implement the numpy.diff() function. I researched this function with the notes provided and with the given the following final chart is provided in the last figure below. My simulation was unable to work because it did not understand what to with the discontinuities of the piece-wise graph.}
+
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{derivative.png}
+    \caption{Derivative of the Plot}
+    \label{fig:derivative.png}
+\end{figure}
+}
+
+\section{Results}\label{sec:res}
+
+\paragraph{The results of this lab concluded with me learning how to implement a user-defined function within the IDE using python. I also learned how to manipulate the functions and graph them.}
+
+
+
+\section{Error Analysis}\label{sec:res}
+
+\paragraph{One fatal error that I had within my code was the fact that my derivative plot did not come out correctly. I tried implementing it several different ways but each way seemed to not work and I concluded the discontinuities of the function were confusing the simulation.}
+
+
+\section{Questions}\label{sec:res}
+
+
+\subparagraph{\large Question 1: Are the plots from Part 3 Task 4 and Part 3 Task 5 identical? 
+Is it possible for them to match? 
+Explain why or why not.}
+
+
+\paragraph{In my results, they were not the same graph; instead, I got a giant gap of where the derivative would have been generated.} 
+
+\subparagraph{\large Question 2: How does the correlation between the two plots (from Part 3 Task 4 and Part 3 Task 5)
+change if you were to change the step size within the time variable in Task 5? Explain why
+this happens}
+
+\paragraph{I imagine if the proper derivatives were calculated that they could perhaps be matched closer than what was actually generated.}
+
+\subparagraph{\large Question 3: Leave any feedback on the clarity of lab tasks, expectations, and deliverables.
+}
+
+\paragraph{The clarifying where to post the finished results of lab reports would be nice.}
+
+\section{Conclusion}\label{sec:res}
+%\lipsum[7-8]\cite{knuthwebsite}
+
+\paragraph{To conclude this report, Python proves to be a very valuable tool in plotting various kinds of functions. It was useful leaning how to implement your own user-defined functions; for instance, the step and ramp functions could be implemented and called again later as to plot another more complex graph.}
+
+%===========================================================
+%===========================================================
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+
+\end{document} 
+
