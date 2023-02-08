@@ -1,0 +1,227 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                             %
+% Sara Gergen                                                 %
+% ECE351                                                      %
+% Lab 3                                                       %
+% 2/7/2022                                                    %
+%                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{alphabeta} 
+
+\usepackage[pdftex]{graphicx}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\linespread{1.06}
+\setlength{\parskip}{8pt plus2pt minus2pt}
+
+\widowpenalty 10000
+\clubpenalty 10000
+
+\newcommand{\eat}[1]{}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\usepackage[official]{eurosym}
+\usepackage{enumitem}
+\setlist{nolistsep,noitemsep}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage{lipsum}
+
+
+\begin{document}
+
+%===========================================================
+\begin{titlepage}
+\begin{center}
+
+% Top 
+\includegraphics[width=0.55\textwidth]{cut-logo-en}~\\[2cm]
+
+
+% Title
+\HRule \\[0.4cm]
+{ \LARGE 
+  \textbf{Project Report for ECE 351}\\[0.4cm]
+  \emph{Lab 3 - Discrete Convolution}\\[0.4cm]
+}
+\HRule \\[1.5cm]
+
+
+
+% Author
+{ \large
+  Sara Gergen \\[0.1cm]
+  2/7/2023\\[0.1cm]
+  %#\texttt{user@cut.ac.cy}
+}
+
+\vfill
+
+%\textsc{\Large Cyprus University of Technology}\\[0.4cm]\textsc{\large Department of Electrical Engineering,\\Computer Engineering \& Informatics}\\[0.4cm]
+
+
+\end{center}
+\end{titlepage}
+
+%\begin{abstract}
+%\lipsum[1-2]
+%\addtocontents{toc}{\protect\thispagestyle{empty}}
+%\end{abstract}
+
+\newpage
+
+
+
+%===========================================================
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\newpage
+\setcounter{page}{1}
+
+%===========================================================
+%===========================================================
+\section{Introduction}\label{sec:intro}
+
+\paragraph{In this lab, various functions were created once again by using the previously coded step and ramp functions. After these functions were created and then convolved. The  convolution was implemented with the use of python.}
+
+
+\section{Equations}\label{sec:lit-rev}
+
+\paragraph{All the following equations are user-defined functions: }
+\subparagraph{Equation 1}
+$$f_1(t) = u(t-2) -u(t-9)$$
+\subparagraph{Equation 2}
+$$f_2(t) = e^{-t}*u(t)$$
+\subparagraph{Equation 3}
+$$f_3(t) = r(t −2) [u(t −2) −u(t −3)] + r(4 −t) [u(t −3) −u(t −4)]$$
+\section{Methodology}\label{sec:meth}
+
+\subparagraph{\large Part 1}
+
+\paragraph{This first portion of the lab says to use the step and ramp functions previously defined in lab 2. The following figures show the three functions plotted in individual figures.}
+
+
+\subparagraph{\large Part 2}
+
+\paragraph{The next step of the lab is to create a user-defined function that performs convolutions. The function should specifically perform the convolution on two functions as input, which returns the convolution. This user-defined function can be found in the attached python code. }
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{CODE.png}
+    \caption{Convolution Function}
+    \label{fig:CODE.png}
+\end{figure}
+}
+
+\section{Results}\label{sec:res}
+
+\paragraph{Figure 1 is a graph of Function/equation 1}
+\paragraph{ 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Func1.png}
+    \caption{Function 1}
+    \label{fig:Func1.png}
+\end{figure}
+}
+
+\paragraph{Figure 2 is a graph of Function/equation 2}
+%func2
+\paragraph{ 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Func2.png}
+    \caption{Function 2}
+    \label{fig:Func2.png}
+\end{figure}
+}
+\paragraph{Figure 3 is a graph of Function/equation 3}
+\paragraph{ 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Func3.png}
+    \caption{Function 3}
+    \label{fig:Func3.png}
+\end{figure}
+}
+
+%con
+\paragraph{Figure 4 is the convolution of function 1 and function 2. }
+\paragraph{ 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{con12.png}
+    \caption{Convolution 1}
+    \label{fig:con12.png}
+\end{figure}
+}
+
+\paragraph{Figure 5 is the convolution of function 2 and function 3. }
+\paragraph{ 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{CON23.png}
+    \caption{Convolution 2}
+    \label{fig:CON23.png}
+\end{figure}
+}
+
+
+\paragraph{Figure 6 is the convolution of function 1 and function 3. }
+\paragraph{ 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{CON13.png}
+    \caption{Convolution 3}
+    \label{fig:CON13.png}
+\end{figure}
+}
+
+
+\section{Error Analysis}\label{sec:res}
+
+\paragraph{One error that I wish I could have changed was the use of the convolve function that python has as a feature; however, I was unable to use it since the given "scripy.signal.convolve()" function did not work. I even proceeded to look it up, and I found a function listed as "numpy.signal.convolve(). However, that function did not work either. From this, I feel like I was unable to compare my convolution with that of python's convolve function.}
+
+\section{Questions}\label{sec:res}
+
+\subparagraph{\large Question 1: Did you work alone or with classmates on this lab? If you collaborated to get to the solution, what did that process look like?}
+
+\paragraph{I did not really discuss the solution with my classmates; however, I did find the explanation that the TA had on the function for convolution very helpful.}
+
+\subparagraph{\large Question 2: What was the most difficult part of this lab for you, and what did your problem-solving
+process look like?}
+
+\paragraph{The most difficult part of this lab was creating the convolution function and getting it to graph correctly.}
+
+
+\subparagraph{\large Question 3:  Did you approach writing the code with analytical or graphical convolution in mind? Why
+did you choose this approach?}
+
+\paragraph{I approached writing the code from a graphical mindset for the convolution. This is much easier for me to see and visualize, which means that it was easier to conceptualize into code. }
+
+\subparagraph{\large Question 3: Leave any feedback on the clarity of lab tasks, expectations, and deliverables.}
+
+\paragraph{After these first three labs, the format of the lab instructions is getting easier to read.}
+
+\section{Conclusion}\label{sec:res}
+%\lipsum[7-8]\cite{knuthwebsite}
+
+\paragraph{In conclusion, this lab proved to be very helpful in furthering my understanding of the convolution integral and python code in general. I started to grasp the concept of convolution by breaking it down into parts. I also had to deal with a lot of trouble-shooting in my code, which is to be expected.}
+
+%===========================================================
+%===========================================================
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+
+\end{document} 
+
+
+
