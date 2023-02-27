@@ -1,0 +1,194 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{alphabeta} 
+
+\usepackage[pdftex]{graphicx}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\linespread{1.06}
+\setlength{\parskip}{8pt plus2pt minus2pt}
+
+\widowpenalty 10000
+\clubpenalty 10000
+
+\newcommand{\eat}[1]{}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\usepackage[official]{eurosym}
+\usepackage{enumitem}
+\setlist{nolistsep,noitemsep}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage{lipsum}
+
+
+\begin{document}
+
+%===========================================================
+\begin{titlepage}
+\begin{center}
+
+% Top 
+\includegraphics[width=0.55\textwidth]{cut-logo-en}~\\[2cm]
+
+
+% Title
+\HRule \\[0.4cm]
+{ \LARGE 
+  \textbf{Project Report for ECE 351}\\[0.4cm]
+  \emph{Lab 5 - Step and Impulse Response of an RLC Band Pass Filter}\\[0.4cm]
+}
+\HRule \\[1.5cm]
+
+
+
+% Author
+{ \large
+  Sara Gergen \\[0.1cm]
+  2/21/2023\\[0.1cm]
+  %#\texttt{user@cut.ac.cy}
+}
+
+\vfill
+
+%\textsc{\Large Cyprus University of Technology}\\[0.4cm]\textsc{\large Department of Electrical Engineering,\\Computer Engineering \& Informatics}\\[0.4cm]
+
+
+\end{center}
+\end{titlepage}
+
+%\begin{abstract}
+%\lipsum[1-2]
+%\addtocontents{toc}{\protect\thispagestyle{empty}}
+%\end{abstract}
+
+\newpage
+
+
+
+%===========================================================
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\newpage
+\setcounter{page}{1}
+
+%===========================================================
+%===========================================================
+\section{Introduction}\label{sec:intro}
+
+
+\paragraph{This lab's purpose was to use Laplace transforms in order to find the time-domain response of impulse and step inputs for a circuit. Specifically, a circuit that was an RLC band pass filter. The following circuit was given:}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Circuit.png}
+    \caption{Hand Calculated}
+    \label{fig:Circuit.png}
+\end{figure}
+}
+
+
+\section{Equations}\label{sec:lit-rev}
+
+\paragraph{Equation 1: Hand calculated Transfer function}
+$$H(s) = 10000s/(s^2 + s/(10000) + (3.7037*10^8)$$
+\paragraph{Equation 2: Hand Calculated Impulse function}
+
+$$h(t) = 10000e^-^5^0^0^0^t*cos(18584t)-2690.5e^-^5^0^0^0^t*sin(18584t)$$
+
+
+
+\section{Methodology}\label{sec:meth}
+
+\subparagraph{\Large Pre-lab}
+
+\paragraph{Before the lab, an RLC Band Pass Filter circuit. The transfer function and impulse response were both calculated by hand and the derived equations are shown in the equation section and can be seen as equation 1 and equation 2.}
+\newpage
+
+
+
+\subparagraph{\Large Part 1}
+
+\paragraph{This section of the lab requires the hand-solved time-domain impulse response to be plotted. This can be seen in figure 2. \newline
+The next sub-step is to use the sig.impulse() function to plot the graph, which uses the s-domain transfer function obtained in the pre-lab; this plotting can be seen in figure 3. The graphs look the same, as they should.}
+
+\subparagraph{\Large Part 2}
+
+\paragraph{This section uses the sig.step() function in order to plot the step response of the transfer function H(S), which is shown in the equation section above. The final value theorem will be shown in this step.}
+
+
+
+\section{Results}\label{sec:res}
+
+\paragraph{The following graphs are the plotted impulse response of the circuit:}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Hand_Calculated.png}
+    \caption{Hand Calculated}
+    \label{fig:Hand_Calculated.png}
+\end{figure}
+}
+
+\paragraph{}
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{impulse.png}
+    \caption{Using sig.impulse() Function}
+    \label{fig:impulse.png}
+\end{figure}
+}
+\newpage
+\paragraph{The following graph is the step response of the transfer function H(s), with using the given function: sig.step().}
+
+\paragraph{}
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{step.png}
+    \caption{Step Response}
+    \label{fig:step.png}
+\end{figure}
+}
+
+
+
+\section{Error Analysis}\label{sec:res}
+
+\paragraph{At first, I had trouble with the axis, since it was too large. However, after reading the lab instructions correctly, I was able to format my graph correctly, and it plotted nicely. \newline 
+Another error that I encounter was the mistyping mistake of my impulse function that was hand calculated. \newline
+Another error that occurred, which I could not fix, was the axis error between the hand-calculated impulse function and the impulse function that utilized the built-in sig.impulse() function, as seen in Figure 2 and Figure 3}
+
+\section{Questions}\label{sec:res}
+\subparagraph{\Large 1. Explain the result of the Final Value Theorem from Part 2 Task 2 in terms of the physical
+circuit components.}
+\paragraph{In terms of the physical circuit components, the plotted results show the wave-like behavior starting high with a larger amplitude. However, near the end, the wave attenuates; this is because the capacitor and inductor both have an initial release of energy. After around 800 microseconds, the waveform attenuates and the circuit stabilizes.}
+`
+
+\subparagraph{\Large 2. Leave any feedback on the clarity of the expectations, instructions, and deliverables.
+}
+\paragraph{The clarity of this lab was fine and I was able to follow along with the instructions.}
+
+\section{Conclusion}\label{sec:res}
+
+\paragraph{To conclude, in this lab, I used the frequency domain in order to find the time-domain step response of the circuit. I used a transfer function in the Laplace domain to do so. I also learned a few new python tricks. I used the built-in functions np.abs() and np.angle() in order to get the absolute value and angle of my 'g' equation. These methods were very effective when obtaining and plotting the time-domain response of the circuit.}
+
+
+%\lipsum[7-8]\cite{knuthwebsite}
+
+%===========================================================
+%===========================================================
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+
+\end{document} 
+
+
+
