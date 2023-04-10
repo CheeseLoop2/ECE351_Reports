@@ -1,0 +1,234 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{alphabeta} 
+
+\usepackage[pdftex]{graphicx}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\linespread{1.06}
+\setlength{\parskip}{8pt plus2pt minus2pt}
+
+\widowpenalty 10000
+\clubpenalty 10000
+
+\newcommand{\eat}[1]{}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\usepackage[official]{eurosym}
+\usepackage{enumitem}
+\setlist{nolistsep,noitemsep}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage{lipsum}
+
+
+\begin{document}
+
+%===========================================================
+\begin{titlepage}
+\begin{center}
+
+% Top 
+\includegraphics[width=0.55\textwidth]{cut-logo-en}~\\[2cm]
+
+
+% Title
+\HRule \\[0.4cm]
+{ \LARGE 
+  \textbf{Project Report for ECE 351}\\[0.4cm]
+  \emph{Lab 9 - Fast Fourier Transform}\\[0.4cm]
+}
+\HRule \\[1. 5cm]
+
+
+
+% Author
+{ \large
+  Sara Gergen \\[0.1cm]
+  3/28/2023\\[0.1cm]
+  %#\texttt{user@cut.ac.cy}
+}
+
+\vfill
+
+%\textsc{\Large Cyprus University of Technology}\\[0.4cm]\textsc{\large Department of Electrical Engineering,\\Computer Engineering \& Informatics}\\[0.4cm]
+
+
+\end{center}
+\end{titlepage}
+
+%\begin{abstract}
+%\lipsum[1-2]
+%\addtocontents{toc}{\protect\thispagestyle{empty}}
+%\end{abstract}
+
+\newpage
+
+
+
+%===========================================================
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\newpage
+\setcounter{page}{1}
+
+%===========================================================
+%===========================================================
+\section{Introduction}\label{sec:intro}
+
+\paragraph{the purpose of this lab is to become familiar with fast Fourier transforms with the use of Python.}
+
+\section{Equations}\label{sec:lit-rev}
+
+\paragraph{The three equations given are:}
+
+$$Signal 1: F_1 = cos(2πt) $$
+
+$$Signal 2: 5sin(2πt)$$
+
+$$Signal 3:  2cos((2π · 2t) − 2) + sin_2((2π · 6t) + 3).$$
+
+
+\section{Methodology}\label{sec:meth}
+
+\subparagraph{\Large Part 1}
+
+\paragraph{In the first portion of the lab, the given code is to be implemented: }
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{code.png}
+    \caption{Given Code}
+    \label{fig:code.png}
+\end{figure}
+}
+
+\paragraph{After putting the given code within a user defined function, that function was to be used on the given signals, which are shown in the \textbf{Equations} section of this document. Each of these signals are to be plotted. The final task, Task 5, requires that the Fourier Series approximation for the square wave created in the previous lab is to be run through the fast Fourier function created.}
+
+\section{Results}\label{sec:res}
+
+
+\paragraph{Plots from task 1}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{task1.png}
+    \caption{n1}
+    \label{fig:task1.png}
+\end{figure}
+}
+
+\paragraph{Plots from task 2}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{task2.png}
+    \caption{Task 2}
+    \label{fig:task2.png}
+\end{figure}
+}
+
+\paragraph{Plots from task 3}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{task3.png}
+    \caption{Task 3}
+    \label{fig:task3.png}
+\end{figure}
+}
+
+\paragraph{The following plots are the same signals from above but instead with the modified user-defined Fourier transform function.}
+\paragraph{\newline Task 4 with signal 1}
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{task4-1.png}
+    \caption{Task 4 - Signal 1}
+    \label{fig:task2.png}
+\end{figure}
+}
+
+\paragraph{ Task 4 with signal 2}
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{task4-2.png}
+    \caption{Task 4 - Signal 2}
+    \label{fig:task4-2.png}
+\end{figure}
+}
+
+\paragraph{Task 4 with signal 3}
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{task4-3.png}
+    \caption{Task 4 - Signal 3}
+    \label{fig:task4-3.png}
+\end{figure}
+}
+
+
+\paragraph{Task 5}
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{task5.png}
+    \caption{Task 5}
+    \label{fig:task5.png}
+\end{figure}
+}
+
+
+\newpage
+
+\section{Error Analysis}\label{sec:res}
+
+\paragraph{There were a lot of errors occurring with my graphs. The formatting took a while to get working correctly because the entire graph kept being replaced by a blank space. Once the graph format issues were fixed, the code functioned properly.}
+
+\section{Questions}\label{sec:res}
+\subparagraph{\large 1. What happens if fs is lower? If it is higher? fs in your report must span a few orders of
+magnitude.}
+
+\paragraph{If fs is lowered then the generated plots' x-axis become smaller. The output is less frequent. However, if fs is increased, the graph is not nearly as compressed as it is when the fs is much lower. }
+
+\subparagraph{\large 2. What difference does eliminating the small phase magnitudes make? \newline}
+
+\paragraph{Eliminated all the small phase magnitudes removes the irrelevant points, which makes the plot come out more clean, which helps for interpretation of the graph.}
+
+\subparagraph{\large 3.Verify your results from Tasks 1 and 2 using the Fourier transforms of cosine and sine.
+Explain why your results are correct. You will need the transforms in terms of Hz, not rad/s.
+For example, the Fourier transform of cosine (in Hz) is: 
+$$F[cos(2πf_0t)] =\frac{1}{2}[δ (f - f_0) + δ (f + f_0)]$$}
+
+\paragraph{The Fourier transform of the equation matches up with the derived equation.}
+
+\subparagraph{\large 4. Leave any feedback on the clarity of lab tasks, expectations, and deliverables.}
+
+\paragraph{This lab was less straight forward than some of the other labs, since the instructions were more ambiguous. However, the deliverables overview list was helpful in clearing up how many graphs were actually expected.}
+
+\section{Conclusion}\label{sec:res}
+
+\paragraph{In this lab, the user defined function of performing fast Fourier transforms allowed for visualization of the Fourier transforms, which would otherwise be harder to see.}
+
+%\lipsum[7-8]\cite{knuthwebsite}
+
+%=======
+%====================================================
+%===========================================================
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+
+\end{document} 
+
+
+
