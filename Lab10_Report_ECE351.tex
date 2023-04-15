@@ -1,0 +1,211 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{alphabeta} 
+
+\usepackage[pdftex]{graphicx}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\linespread{1.06}
+\setlength{\parskip}{8pt plus2pt minus2pt}
+
+\widowpenalty 10000
+\clubpenalty 10000
+
+\newcommand{\eat}[1]{}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\usepackage[official]{eurosym}
+\usepackage{enumitem}
+\setlist{nolistsep,noitemsep}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage{lipsum}
+
+
+\begin{document}
+
+%===========================================================
+\begin{titlepage}
+\begin{center}
+
+% Top 
+\includegraphics[width=0.55\textwidth]{cut-logo-en}~\\[2cm]
+
+
+% Title
+\HRule \\[0.4cm]
+{ \LARGE 
+  \textbf{Project Report for ECE 351}\\[0.4cm]
+  \emph{Lab 10 - Frequency Response}\\[0.4cm]
+}
+\HRule \\[1. 5cm]
+
+
+
+% Author
+{ \large
+  Sara Gergen \\[0.1cm]
+  4/4/2023\\[0.1cm]
+  %#\texttt{user@cut.ac.cy}
+}
+
+\vfill
+
+%\textsc{\Large Cyprus University of Technology}\\[0.4cm]\textsc{\large Department of Electrical Engineering,\\Computer Engineering \& Informatics}\\[0.4cm]
+
+
+\end{center}
+\end{titlepage}
+
+%\begin{abstract}
+%\lipsum[1-2]
+%\addtocontents{toc}{\protect\thispagestyle{empty}}
+%\end{abstract}
+
+\newpage
+
+
+
+%===========================================================
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\newpage
+\setcounter{page}{1}
+
+%===========================================================
+%===========================================================
+\section{Introduction}\label{sec:intro}
+
+\paragraph{The purpose of this lab is to familiarize oneself with frequency response tools and to create Bode plots with the use of Python.}
+
+\section{Equations}\label{sec:lit-rev}
+
+\paragraph{The following is the transfer function given: }
+
+$$H(s) = \frac{\frac{1}{RC}s}{s^2+\frac{1}{RC}s+\frac{1}{LC}}$$
+
+\paragraph{The magnitude was found as:}
+
+$$Magnitude = \sqrt{\frac{\frac{\omega}{RC}^2}{(-\omega^w+\frac{\omega}{RC})^2}}$$
+
+\paragraph{The phase was found as:} 
+$$phase = \sqrt{\frac{\frac{\omega}{RC}^2}{-\omega^2 + \frac{1}{LC}^2}}$$
+
+\section{Methodology}\label{sec:meth}
+
+\subparagraph{\Large Preliminaries:}
+
+\paragraph{the following circuit was given:}
+
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Circuit.png}
+    \caption{Given: Circuit}
+    \label{fig:Circuit.png}
+\end{figure}
+}
+
+\paragraph{The RLC circuit's transfer function was also given, which is shown in the \textbf{Equation} section of this document. The preliminary lab requires that the magnitude and phase be found based on this given transfer function. The values were then found symbolically and incorporated into the code.}
+
+\subparagraph{\large Part 1}
+
+\paragraph{After the magnitude and phase equations were incorporated into the code, the first task was to convert the magnitude into decibels, and that was then plotted on a logarithmic scale.}
+
+\paragraph{The next task given in this first part of the lab report is to use the sig.bode function in order to plot the magnitude and phase frequency response for the given transfer function. Essentially, the previous step is repeated but with a Python function instead of a user-defined function.}
+
+\paragraph{The third task requires the frequency response to be plotted with respect to Hertz instead of radians. The code given as an example is to be used in order to complete this task.}
+
+\subparagraph{\large Part 2}
+
+\paragraph{The signal given in this part of the lab was to be plotted and passed through an RLC circuit. In order to do this, the signal must first be converted into its z-domain with the function sig.bilinear(). This input signal will then be passed through the filter with sig.lfilter(), then the signal will be plotted.}
+
+\section{Results}\label{sec:res}
+
+
+\paragraph{The following are Bode plots for tasks 1- 3}
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{handcalc.png}
+    \caption{Graph of hand calculations}
+    \label{fig:handcalc.png}
+\end{figure}
+}
+
+\paragraph{}
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{functioncalc.png}
+    \caption{Graph of Python Function calculations}
+    \label{fig:functioncalc.png}
+\end{figure}
+}
+
+\paragraph{}
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{hertz.png}
+    \caption{Graph with Hertz as the x-axis}
+    \label{fig:hertz.png}
+\end{figure}
+}
+
+\paragraph{}
+\paragraph{
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{output.png}
+    \caption{Filtered Input}
+    \label{fig:output.png}
+\end{figure}
+}
+
+\newpage
+
+\section{Error Analysis}\label{sec:res}
+
+\paragraph{The main struggle of this lab was the formatting of the graphs. The formatting took a lot of online research in order to get it right and graph correctly.
+Another struggle was getting the graph to format nicely. Unfortunately, I was unable to get my bode plot to look like a standard bode plot. The phase graph had sharp turns instead of gradual smooth curves. The same issue occurred for my magnitude plot as well. The graph itself displayed sharp changes but still generally had the correct shape.}
+
+\section{Questions}\label{sec:res}
+\subparagraph{\large 1. Explain how the filter and filtered output in Part 2 makes sense given the Bode plots from Part 1. Discuss how the filter modifies specific frequency bands in Hz.}
+
+\paragraph{The filter and filtered output make sense }
+
+\subparagraph{\large 2. Discuss the purpose and workings of sig.bilinear() and sig.lfilter()}
+
+\paragraph{The purpose of sig.bilinear() is to perform a z transform by taking the given equation in the s-domain and converting it to the z-domain since digital filtering is an easier task to complete. The purpose of sig.lfilter() is to put the input through a digital filter.}
+
+\subparagraph{\large 3. What happens if you use a different sampling frequency in sig.bilinear() than you used for the time-domain signal?}
+
+\paragraph{If a different sampling frequency were to be used instead, it could make the plot harder or easier to interpret. If a really high sampling frequency was used, then the plot would be more clear and easier to interpret; however, if a low sampling frequency were to be used, the plot would come out crowded.}
+
+\subparagraph{\large 4. Leave any feedback on the clarity of lab tasks, expectations, and deliverables.}
+
+\paragraph{This lab was rather straightforward.}
+
+\section{Conclusion}\label{sec:res}
+
+\paragraph{To conclude, this lab successfully showed the use of the frequency response tools and creating Bode plots with Python. The results obtained from the lab demonstrated the utility of Bode plots in analyzing the behavior of a system in the frequency domain. Overall, the lab helped in effectively using the tools to generate bode plots. }
+
+
+
+%\lipsum[7-8]\cite{knuthwebsite}
+
+%=======
+%====================================================
+%===========================================================
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+
+\end{document} 
+
+
+
